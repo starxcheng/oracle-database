@@ -1,0 +1,6 @@
+You are required to obtain a list of EMPLOYEE_ID, LAST_NAME, and HIRE_DATE values for the employees who have worked more than 60 months between the date they were hired and 01-JAN-2000.
+
+select employee_id, last_name, hire_date
+from employees
+where months_between(hire_date, '01-JAN-2000')>60;
+
