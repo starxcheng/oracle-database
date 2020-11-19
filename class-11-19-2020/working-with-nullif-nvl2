@@ -1,0 +1,8 @@
+Exercise
+Return a set of rows from the EMPLOYEES table with DEPARTMENT_ID values of 100. 
+The set must also contain FIRST_NAME and LAST_NAME values and an expression aliased as NAME_LENGTHS. 
+This expression must return the string 'Different Length' if the length of the FIRST_NAME differs from that of the LAST_NAME, else the string 'Same Length' must be returned.
+
+select first_name, last_name,
+nvl2(nullif(length(first_name), length(last_name)), 'Different Length', 'Same Length')
+from employees where department_id=100;
