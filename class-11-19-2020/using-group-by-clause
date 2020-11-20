@@ -1,0 +1,10 @@
+Exercise
+Analysis of staff turnover is a common reporting requirement. You are required to create a report containing the number of employees who left their jobs, grouped by the year in which they left. The jobs they performed are also required. The results must be sorted in descending order based on the number of employees in each group. The report must list the year, the JOB_ID, and the number of employees who left a particular job in that year.
+
+
+
+select to_char(end_date, 'yyyy'), job_id, count(*)
+from job_history
+group by to_char(end_date, 'yyyy'), job_id
+order by count(*) desc;
+
