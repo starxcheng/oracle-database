@@ -1,0 +1,38 @@
+Lab question:
+You are required to produce a report of customers who purchased products with list prices of more than $1000. The report must contain customer first and last names and the product names and their list prices. Customer information is stored in the CUSTOMERS table, which has the CUSTOMER_ID column as its primary key. The product name and list price details are stored in the PRODUCT_INFORMATION table with the PRODUCT_ID column as its primary key. Two other related tables may assist in generating the required report: the ORDERS table, which stores the CUSTOMER_ID and ORDER_ID information, and the ORDER_ITEMS table, which stores the PRODUCT_ID values associated with each ORDER_ID. There are several approaches to solving this question. Your approach may differ from the solution listed
+
+
+
+Answers:
+
+1.
+select cust_first_name, cust_last_name, product_name, list_price
+from customers
+natural join orders
+natural join order_items
+natural join product_information
+where list_price >1000;
+
+2.
+select c.cust_first_name, c.cust_last_name, p.product_name, p.list_price
+from customers c, orders o, order_items oi, product_information p
+where c.customer_id=o.customer_id
+and o.order_id=oi.order_id
+and oi.product_id=p.product_id
+and p.list_price>1000;
+
+3.
+select c.cust_first_name, c.cust_last_name, p.product_name, p.list_price
+from customers c
+join orders o on (c.customer_id=o.customer_id)
+join order_items oi on (o.order_id=oi.order_id)
+join product_information p on (oi.product_id=p.product_id)
+where p.list_price>1000;
+
+4.
+ select cust_first_name, cust_last_name, product_name, list_price
+ from customers
+ join orders using (customer_id)
+ join order_items using (order_id)
+ join product_information using (product_id)
+ where list_price >1000;
