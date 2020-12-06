@@ -1,0 +1,30 @@
+select last_name
+from employees
+where department_id in
+  (select department_id
+   from departments
+   where location_id in
+     (select location_id
+      from locations
+      where country_id in
+        (select country_id
+         from countries
+         where country_name='United Kingdom')));
+
+select last_name
+from employees
+where salary > (select avg(salary) from employees)
+and department_id in (select department_id
+                     from departments where upper(department_name) like 'IT%');
+
+select last_name
+from employees
+where salary > (select  salary from employees where upper(last_name) ='TOBIAS');
+
+select last_name
+from employees
+where salary > (select  salary from employees
+                where upper(last_name) ='TAYLOR' and upper(first_name)='WINSTON');
+
+
+
