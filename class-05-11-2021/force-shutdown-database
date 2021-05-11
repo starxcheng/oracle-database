@@ -1,0 +1,29 @@
+[oracle@localhost ~]$ sqlplus /nolog
+SQL*Plus: Release 12.2.0.1.0 Production on Tue May 11 18:26:53 2021
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+SQL> conn /as sysdba
+Connected to an idle instance.
+SQL> shutdown immediate
+ERROR:
+ORA-01089: immediate shutdown or close in progress - no operations are
+permitted
+Process ID: 0
+Session ID: 0 Serial number: 0
+SQL> conn /as sysdba
+Connected to an idle instance.
+SQL> shutdown abort
+ORACLE instance shut down.
+SQL> startup
+ORACLE instance started.
+Total System Global Area 2466250752 bytes
+Fixed Size		    8623688 bytes
+Variable Size		  587205048 bytes
+Database Buffers	 1862270976 bytes
+Redo Buffers		    8151040 bytes
+Database mounted.
+Database opened.
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[oracle@localhost ~]$ exit
+logout
+[ostudent@localhost ~]$ 
