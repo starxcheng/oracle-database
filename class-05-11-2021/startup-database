@@ -1,0 +1,37 @@
+##
+## to startup database, switch user to oracle account from ostudent account
+##
+[otudent@localhost ~]$ su - oracle
+Password: 
+Last login: Sat May  8 12:16:15 EDT 2021 on pts/2
+ORACLE_UNQNAME=ORA12C
+ORACLE_SID=ORA12C
+ORACLE_BASE=/u01/app/oracle
+ORACLE_HOME=/u01/app/oracle/product/12.2.0/dbhome_1
+##
+## login to sqlplus with /nolog and then connect to sysdba
+##
+[oracle@localhost ~]$ sqlplus /nolog
+
+SQL*Plus: Release 12.2.0.1.0 Production on Tue May 11 17:41:03 2021
+
+Copyright (c) 1982, 2016, Oracle.  All rights reserved.
+
+SQL> conn /as sysdba
+Connected to an idle instance.
+SQL> startup
+ORACLE instance started.
+
+Total System Global Area 2466250752 bytes
+Fixed Size		    8623688 bytes
+Variable Size		  587205048 bytes
+Database Buffers	 1862270976 bytes
+Redo Buffers		    8151040 bytes
+Database mounted.
+Database opened.
+SQL> exit
+Disconnected from Oracle Database 12c Enterprise Edition Release 12.2.0.1.0 - 64bit Production
+[oracle@localhost ~]$ exit
+logout
+[ostudent@localhost ~]$ 
+## now we are back to ostudent
