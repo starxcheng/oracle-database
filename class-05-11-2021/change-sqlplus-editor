@@ -1,0 +1,12 @@
+##to change default editor to gedit (the graphical editor in linux) for sqlplus:
+## login as oracle user
+## change directory to $ORACLE_HOME/sqlplus/admin
+cd $ORACLE_HOME/sqlplus/admin
+## edit file glogin.sql using vi
+vi glogin.sql
+
+##add a line:
+
+define _editor = gedit
+
+## save the file and exit
